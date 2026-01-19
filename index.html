@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Calculadora - Materiais de Craft</title>
+  <title>Calculadora - Materiais (MK2)</title>
 
   <style>
     :root{
@@ -25,7 +25,7 @@
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 40px auto;
       padding: 26px;
       border-radius: 22px;
@@ -38,7 +38,7 @@
 
     h1 {
       text-align: center;
-      margin-bottom: 6px;
+      margin: 0 0 6px;
       font-weight: 900;
       letter-spacing: 1px;
     }
@@ -64,7 +64,7 @@
     }
 
     h2{
-      margin-bottom: 14px;
+      margin: 0 0 14px;
       font-size: 18px;
       text-align:center;
     }
@@ -73,6 +73,7 @@
       display: block;
       margin-top: 12px;
       font-size: 14px;
+      opacity: 0.95;
     }
 
     input {
@@ -84,7 +85,12 @@
       font-size: 16px;
       background: var(--white);
       color: #000;
+      box-sizing: border-box;
       outline: none;
+    }
+
+    input:focus{
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.18);
     }
 
     .btns{
@@ -127,6 +133,7 @@
 
     .value{
       font-weight: 800;
+      letter-spacing: .3px;
     }
 
     .logo{
@@ -148,7 +155,7 @@
 <body>
   <div class="container">
     <h1>Calculadora de Materiais</h1>
-    <div class="subtitle">Corpos de Rifle • SMG • Pistola</div>
+    <div class="subtitle">Lockpick Avançada • Rifles MK2 • Pistolas MK2</div>
 
     <div class="layout">
 
@@ -156,17 +163,32 @@
       <div class="card">
         <h2>Quantidade de Crafts</h2>
 
-        <label>Corpo de Rifle</label>
-        <input type="number" id="rifle" value="0" min="0">
+        <label>Lockpick Avançada</label>
+        <input type="number" id="lockpick" value="0" min="0">
 
-        <label>Corpo de SMG</label>
-        <input type="number" id="smg" value="0" min="0">
+        <label>G3 MK2</label>
+        <input type="number" id="g3" value="0" min="0">
 
-        <label>Corpo de Pistola</label>
-        <input type="number" id="pistola" value="0" min="0">
+        <label>QBZ MK2</label>
+        <input type="number" id="qbz" value="0" min="0">
+
+        <label>M4 MK2</label>
+        <input type="number" id="m4" value="0" min="0">
+
+        <label>AK-47 MK</label>
+        <input type="number" id="ak47" value="0" min="0">
+
+        <label>Pistola Pesada</label>
+        <input type="number" id="pistola_pesada" value="0" min="0">
+
+        <label>Deagle</label>
+        <input type="number" id="deagle" value="0" min="0">
+
+        <label>Five SeveN MK2</label>
+        <input type="number" id="fiveseven" value="0" min="0">
 
         <div class="btns">
-          <button id="resetBtn">RESET</button>
+          <button id="resetBtn" type="button">RESET</button>
         </div>
       </div>
 
@@ -175,62 +197,6 @@
         <h2>Materiais Necessários</h2>
 
         <div class="result">
-          <div class="row">
-            <span>🧩 Peças de Arma</span>
-            <span class="value" id="pecas">0</span>
-          </div>
-
-          <div class="row">
-            <span>🪙 Sucata</span>
-            <span class="value" id="sucata">0</span>
-          </div>
-
-          <div class="row">
-            <span>⚪ Alumínio</span>
-            <span class="value" id="aluminio">0</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="logo">VAGOS</div>
-  </div>
-
-  <script>
-    const receitas = {
-      rifle:   { pecas: 10, sucata: 100, aluminio: 100 },
-      smg:     { pecas: 8,  sucata: 80,  aluminio: 80  },
-      pistola: { pecas: 6,  sucata: 70,  aluminio: 70  }
-    };
-
-    const campos = ["rifle", "smg", "pistola"];
-
-    function calcular(){
-      let totalPecas = 0;
-      let totalSucata = 0;
-      let totalAluminio = 0;
-
-      campos.forEach(id => {
-        const n = Number(document.getElementById(id).value) || 0;
-        totalPecas += receitas[id].pecas * n;
-        totalSucata += receitas[id].sucata * n;
-        totalAluminio += receitas[id].aluminio * n;
-      });
-
-      document.getElementById("pecas").innerText = totalPecas.toLocaleString();
-      document.getElementById("sucata").innerText = totalSucata.toLocaleString();
-      document.getElementById("aluminio").innerText = totalAluminio.toLocaleString();
-    }
-
-    document.querySelectorAll("input").forEach(i => i.addEventListener("input", calcular));
-
-    document.getElementById("resetBtn").addEventListener("click", () => {
-      campos.forEach(id => document.getElementById(id).value = 0);
-      calcular();
-    });
-
-    calcular();
-  </script>
-</body>
-</html>
+          <div class="row"><span>🔨 Hammer</span><span class="value" id="hammer">0</span></div>
+          <div class="row"><span>⚪ Alumínio</span><span class="value" id="aluminio">0</span></div>
+          <div class="row"><span>📘 BP Rifle</span><span class="value" id="bp_rifle">0</span></div>
